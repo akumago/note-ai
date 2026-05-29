@@ -26,7 +26,13 @@ jobs:
       - name: Build dashboard
         run: npm run cloud:dashboard
       - name: Commit outputs
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: add weekly note editorial meeting"
-          file_pattern: outputs/metrics/*.md outputs/dashboard.md
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/metrics/*.md outputs/dashboard.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: add weekly note editorial meeting"
+            git push
+          fi
