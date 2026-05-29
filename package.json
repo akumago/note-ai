@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "cloud:preflight": "node scripts/preflight.mjs",
     "cloud:research": "node scripts/cloud-agent.mjs research",
     "cloud:draft": "node scripts/cloud-agent.mjs draft",
     "cloud:weekly": "node scripts/cloud-agent.mjs weekly",
