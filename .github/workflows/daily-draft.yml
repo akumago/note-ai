@@ -1,0 +1,32 @@
+name: Daily note draft
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm install
+      - name: Run daily draft
+        run: npm run cloud:draft
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
+      - name: Build dashboard
+        run: npm run cloud:dashboard
+      - name: Commit outputs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: add daily note draft"
+          file_pattern: outputs/drafts/*.md outputs/dashboard.md

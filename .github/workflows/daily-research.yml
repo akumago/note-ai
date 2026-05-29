@@ -1,0 +1,33 @@
+name: Daily note research
+
+on:
+  schedule:
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm install
+      - name: Run daily research
+        run: npm run cloud:research
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
+          ENABLE_WEB_SEARCH: ${{ vars.ENABLE_WEB_SEARCH || 'true' }}
+      - name: Build dashboard
+        run: npm run cloud:dashboard
+      - name: Commit outputs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: add daily note research"
+          file_pattern: outputs/research/*.md outputs/dashboard.md

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">無料で読む人と有料でも買う人の違い</title>
+  <desc id="desc">無料で読む人は興味がある人。有料でも買う人は困っている人。</desc>
+  <rect width="1600" height="1000" fill="#f7f6f2"/>
+  <text x="800" y="105" text-anchor="middle" font-family="'Yu Gothic','Meiryo',sans-serif" font-size="56" font-weight="700" fill="#1f2933">無料で読む人と、有料でも買う人の違い</text>
+
+  <g font-family="'Yu Gothic','Meiryo',sans-serif">
+    <rect x="120" y="190" width="620" height="680" rx="34" fill="#ffffff" stroke="#d7dde4" stroke-width="3"/>
+    <text x="430" y="285" text-anchor="middle" font-size="44" font-weight="700" fill="#376996">無料で読む人</text>
+    <text x="430" y="345" text-anchor="middle" font-size="30" fill="#5b6470">興味がある人</text>
+    <g font-size="34" fill="#1f2933">
+      <text x="190" y="450">・なんとなく知りたい</text>
+      <text x="190" y="535">・今すぐ困っていない</text>
+      <text x="190" y="620">・読み物として楽しむ</text>
+      <text x="190" y="705">・無料記事で信頼を作る</text>
+    </g>
+
+    <rect x="860" y="190" width="620" height="680" rx="34" fill="#1f2933"/>
+    <text x="1170" y="285" text-anchor="middle" font-size="44" font-weight="700" fill="#ffffff">有料でも買う人</text>
+    <text x="1170" y="345" text-anchor="middle" font-size="30" fill="#d7dde4">困っている人</text>
+    <g font-size="34" fill="#ffffff">
+      <text x="930" y="450">・早く解決したい</text>
+      <text x="930" y="535">・失敗を避けたい</text>
+      <text x="930" y="620">・手順やテンプレが欲しい</text>
+      <text x="930" y="705">・有料記事の候補になる</text>
+    </g>
+  </g>
+</svg>

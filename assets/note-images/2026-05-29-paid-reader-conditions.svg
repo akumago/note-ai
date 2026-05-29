@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">有料でも買う読者の5条件</title>
+  <desc id="desc">悩みが強い、早く解決したい、失敗を避けたい、調べる時間を減らしたい、テンプレートに価値を感じる。</desc>
+  <rect width="1200" height="1500" fill="#f7f6f2"/>
+  <rect x="80" y="80" width="1040" height="1340" rx="36" fill="#ffffff"/>
+  <text x="140" y="180" font-family="'Yu Gothic', 'Meiryo', sans-serif" font-size="56" font-weight="700" fill="#1f2933">有料でも買う読者の5条件</text>
+  <text x="140" y="240" font-family="'Yu Gothic', 'Meiryo', sans-serif" font-size="30" fill="#5b6470">3つ以上当てはまるなら、有料化候補。</text>
+
+  <g font-family="'Yu Gothic', 'Meiryo', sans-serif" fill="#1f2933">
+    <g transform="translate(140 340)">
+      <circle cx="60" cy="60" r="48" fill="#2f6f73"/><text x="60" y="76" text-anchor="middle" font-size="42" font-weight="700" fill="#fff">1</text>
+      <text x="140" y="56" font-size="42" font-weight="700">悩みが強い</text>
+      <text x="140" y="100" font-size="26" fill="#5b6470">なんとなく知りたい、ではなく今困っている。</text>
+    </g>
+    <g transform="translate(140 520)">
+      <circle cx="60" cy="60" r="48" fill="#376996"/><text x="60" y="76" text-anchor="middle" font-size="42" font-weight="700" fill="#fff">2</text>
+      <text x="140" y="56" font-size="42" font-weight="700">早く解決したい</text>
+      <text x="140" y="100" font-size="26" fill="#5b6470">自分で調べるより、手順で進めたい。</text>
+    </g>
+    <g transform="translate(140 700)">
+      <circle cx="60" cy="60" r="48" fill="#c47f2c"/><text x="60" y="76" text-anchor="middle" font-size="42" font-weight="700" fill="#fff">3</text>
+      <text x="140" y="56" font-size="42" font-weight="700">失敗を避けたい</text>
+      <text x="140" y="100" font-size="26" fill="#5b6470">成功法だけでなく、失敗回避に価値を感じる。</text>
+    </g>
+    <g transform="translate(140 880)">
+      <circle cx="60" cy="60" r="48" fill="#6f5ba7"/><text x="60" y="76" text-anchor="middle" font-size="42" font-weight="700" fill="#fff">4</text>
+      <text x="140" y="56" font-size="42" font-weight="700">調べる時間を減らしたい</text>
+      <text x="140" y="100" font-size="26" fill="#5b6470">判断基準や比較表をすぐ使いたい。</text>
+    </g>
+    <g transform="translate(140 1060)">
+      <circle cx="60" cy="60" r="48" fill="#4d8b57"/><text x="60" y="76" text-anchor="middle" font-size="42" font-weight="700" fill="#fff">5</text>
+      <text x="140" y="56" font-size="42" font-weight="700">テンプレートに価値を感じる</text>
+      <text x="140" y="100" font-size="26" fill="#5b6470">そのまま使える型やチェックリストが欲しい。</text>
+    </g>
+  </g>
+
+  <rect x="140" y="1280" width="920" height="90" rx="22" fill="#1f2933"/>
+  <text x="600" y="1338" text-anchor="middle" font-family="'Yu Gothic', 'Meiryo', sans-serif" font-size="32" font-weight="700" fill="#ffffff">2つ以下なら、まずは無料記事で反応を見る。</text>
+</svg>

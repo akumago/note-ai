@@ -1,0 +1,16 @@
+{
+  "name": "note-ai-company",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cloud:research": "node scripts/cloud-agent.mjs research",
+    "cloud:draft": "node scripts/cloud-agent.mjs draft",
+    "cloud:weekly": "node scripts/cloud-agent.mjs weekly",
+    "cloud:dashboard": "node scripts/build-dashboard.mjs"
+  },
+  "dependencies": {
+    "openai": "^6.10.0"
+  },
+  "devDependencies": {}
+}
