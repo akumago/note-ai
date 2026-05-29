@@ -4,7 +4,16 @@ import OpenAI from "openai";
 
 const ROOT = process.cwd();
 const mode = process.argv[2];
-const today = new Date().toISOString().slice(0, 10);
+const today = formatDateInTokyo(new Date());
+
+function formatDateInTokyo(date) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
 
 const MODES = {
   research: {
@@ -96,7 +105,10 @@ async function buildContext() {
   const chunks = [];
   chunks.push(`--- DATE ---\n${today}`);
   chunks.push(`--- MODE ---\n${mode}`);
-  chunks.push(`--- EXECUTION SAFETY ---\n外部投稿、外部送信、購入、削除、アカウント操作は絶対に行わない。成果物Markdownだけを作成する。`);
+  chunks.push(`--- EXECUTION SAFETY ---
+外部投稿、外部送信、購入、削除、アカウント操作は絶対に行わない。
+このジョブはMarkdownの成果物だけを作成する。
+note公開、X投稿、メール返信、購入者対応は人間の承認後に手動で行う。`);
   chunks.push(`--- MAIN PROMPT: ${config.promptFile} ---\n${await readText(config.promptFile)}`);
 
   for (const file of [...commonFiles, ...(modeFiles[mode] || [])]) {
@@ -107,6 +119,7 @@ async function buildContext() {
     chunks.push(`--- RECENT RESEARCH ---${await readDirSnippets("outputs/research")}`);
     chunks.push(`--- RECENT APPROVALS ---${await readDirSnippets("outputs/approvals")}`);
   }
+
   if (mode === "weekly") {
     chunks.push(`--- RECENT DRAFTS ---${await readDirSnippets("outputs/drafts")}`);
     chunks.push(`--- PUBLISHED ---${await readDirSnippets("outputs/published")}`);
