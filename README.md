@@ -22,6 +22,7 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - `operations/manual-note-posting-checklist.md`: note手動投稿チェックリスト
 - `operations/automation-setup.md`: Codex Automationの設定内容
 - `operations/github-actions-cloud-setup.md`: GitHub Actionsでクラウド実行する設定
+- `operations/github-push-next-steps.md`: GitHubへpushする次の手順
 - `prompts/`: Codex Automationや手動実行で使う部署別プロンプト
 
 ## 初期構築の進め方
