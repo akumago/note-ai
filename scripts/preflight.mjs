@@ -13,6 +13,7 @@ const requiredFiles = [
   "scripts/build-codex-reminder.mjs",
   "prompts/codex-business-daily-run.md",
   "prompts/codex-business-research-catchup-run.md",
+  "prompts/codex-business-ceo-approval-brief.md",
   "prompts/codex-business-draft-run.md",
   "prompts/codex-business-weekly-run.md",
   "prompts/comment-reply.md",
@@ -36,6 +37,7 @@ const requiredFiles = [
   "operations/comment-reply-workflow.md",
   "operations/codex-business-runbook.md",
   "operations/research-catchup-automation.md",
+  "operations/ceo-approval-brief-workflow.md",
   ".github/workflows/daily-research.yml",
   ".github/workflows/daily-draft.yml",
   ".github/workflows/comment-reply.yml",
@@ -51,6 +53,7 @@ const requiredDirs = [
   "outputs/replies",
   "outputs/reminders",
   "outputs/approvals",
+  "outputs/ceo-briefs",
   "outputs/published",
   "outputs/metrics",
 ];
