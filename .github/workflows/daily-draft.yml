@@ -18,7 +18,13 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm install
+      - name: Check approved topic
+        id: approval
+        run: npm run cloud:check-approval
+        env:
+          ALLOW_OLD_APPROVAL: ${{ vars.ALLOW_OLD_APPROVAL || 'false' }}
       - name: Run daily draft
+        if: steps.approval.outputs.should_run == 'true'
         run: npm run cloud:draft
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

@@ -45,6 +45,14 @@ OPENAI_MODEL=gpt-5.2
 ENABLE_WEB_SEARCH=false
 ```
 
+古い承認ログから手動でドラフト生成したい場合のみ、以下を一時的に追加する。
+
+```text
+ALLOW_OLD_APPROVAL=true
+```
+
+通常運用では未設定または `false` にする。
+
 ## 作成したworkflow
 
 | Workflow | ファイル | 実行時刻 |
@@ -79,6 +87,8 @@ npm run cloud:research
 ```
 
 `cloud:preflight` はAPIキーなしで実行できる。必要ファイル、出力ディレクトリ、スクリプト構文の確認に使う。
+
+`cloud:check-approval` は今日の日付の承認ログに `判断: 採用` があるか確認する。承認がない日は制作部を走らせない。
 
 ## 出力先
 

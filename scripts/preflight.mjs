@@ -7,6 +7,7 @@ const requiredFiles = [
   "package.json",
   "scripts/cloud-agent.mjs",
   "scripts/build-dashboard.mjs",
+  "scripts/check-approval.mjs",
   "prompts/daily-research.md",
   "prompts/daily-draft.md",
   "prompts/weekly-editorial-meeting.md",
