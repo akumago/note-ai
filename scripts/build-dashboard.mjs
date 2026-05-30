@@ -81,9 +81,13 @@ ${await extractDecisionHints()}
 
 ${await buildSection("最新リサーチ", "outputs/research")}
 
+${await buildSection("ネタ候補キュー", "outputs/topic-queue")}
+
 ${await buildSection("最新承認ログ", "outputs/approvals")}
 
 ${await buildSection("最新ドラフト", "outputs/drafts")}
+
+${await buildSection("公開候補キュー", "outputs/publish-queue")}
 
 ${await buildSection("公開済み記事", "outputs/published")}
 

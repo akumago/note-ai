@@ -22,6 +22,12 @@ const MODES = {
     outName: `${today}-cloud-research.md`,
     title: "noteネタ候補レポート",
   },
+  curate: {
+    promptFile: "prompts/topic-curation.md",
+    outDir: "outputs/topic-queue",
+    outName: `${today}-topic-queue.md`,
+    title: "noteネタ候補キュー",
+  },
   draft: {
     promptFile: "prompts/daily-draft.md",
     outDir: "outputs/drafts",
@@ -98,6 +104,7 @@ async function buildContext() {
 
   const modeFiles = {
     research: ["agents/リサーチ部長.md"],
+    curate: ["operations/final-automation-architecture.md"],
     draft: ["agents/制作部編集長.md"],
     weekly: ["operations/weekly-editorial-meeting-template.md"],
   };
@@ -115,8 +122,15 @@ note公開、X投稿、メール返信、購入者対応は人間の承認後に
     chunks.push(`--- FILE: ${file} ---\n${await readText(file)}`);
   }
 
-  if (mode !== "research") {
+  if (mode === "curate") {
     chunks.push(`--- RECENT RESEARCH ---${await readDirSnippets("outputs/research")}`);
+    chunks.push(`--- RECENT METRICS ---${await readDirSnippets("outputs/metrics")}`);
+    chunks.push(`--- RECENT PUBLISHED ---${await readDirSnippets("outputs/published")}`);
+  }
+
+  if (mode !== "research" && mode !== "curate") {
+    chunks.push(`--- RECENT RESEARCH ---${await readDirSnippets("outputs/research")}`);
+    chunks.push(`--- RECENT TOPIC QUEUE ---${await readDirSnippets("outputs/topic-queue")}`);
     chunks.push(`--- RECENT APPROVALS ---${await readDirSnippets("outputs/approvals")}`);
   }
 

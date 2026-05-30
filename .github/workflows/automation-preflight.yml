@@ -30,6 +30,7 @@ jobs:
           node --check scripts/cloud-agent.mjs
           node --check scripts/build-dashboard.mjs
           node --check scripts/check-approval.mjs
+          node --check scripts/build-publish-queue.mjs
           node --check scripts/preflight.mjs
       - name: Run preflight
         run: npm run cloud:preflight

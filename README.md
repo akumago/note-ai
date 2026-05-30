@@ -22,6 +22,7 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - `operations/manual-note-posting-checklist.md`: note手動投稿チェックリスト
 - `operations/automation-setup.md`: Codex Automationの設定内容
 - `operations/github-actions-cloud-setup.md`: GitHub Actionsでクラウド実行する設定
+- `operations/final-automation-architecture.md`: 最終自動化アーキテクチャ
 - `operations/github-push-next-steps.md`: GitHubへpushする次の手順
 - `prompts/`: Codex Automationや手動実行で使う部署別プロンプト
 
@@ -43,3 +44,5 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - note有料記事は、誇大表現・売上煽り・自己購入・専門助言の断定を避ける。
 - note依存を避けるため、公開原稿とエクスポートデータを定期的にバックアップする。
 - note記事はAIが完成させるのではなく、社長の体験談・失敗談・検証結果をAIが編集する形で作る。
+- バズネタ収集、ネタ精査、ドラフト作成、公開候補キュー化までは自動化する。
+- noteへの投稿は、公開候補キューと投稿前チェックを通したものだけを扱う。

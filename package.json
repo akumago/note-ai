@@ -7,8 +7,10 @@
     "cloud:preflight": "node scripts/preflight.mjs",
     "cloud:check-approval": "node scripts/check-approval.mjs",
     "cloud:research": "node scripts/cloud-agent.mjs research",
+    "cloud:curate": "node scripts/cloud-agent.mjs curate",
     "cloud:draft": "node scripts/cloud-agent.mjs draft",
     "cloud:weekly": "node scripts/cloud-agent.mjs weekly",
+    "cloud:publish-queue": "node scripts/build-publish-queue.mjs",
     "cloud:dashboard": "node scripts/build-dashboard.mjs"
   },
   "dependencies": {

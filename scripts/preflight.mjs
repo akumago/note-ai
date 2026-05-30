@@ -8,7 +8,9 @@ const requiredFiles = [
   "scripts/cloud-agent.mjs",
   "scripts/build-dashboard.mjs",
   "scripts/check-approval.mjs",
+  "scripts/build-publish-queue.mjs",
   "prompts/daily-research.md",
+  "prompts/topic-curation.md",
   "prompts/daily-draft.md",
   "prompts/weekly-editorial-meeting.md",
   "agents/リサーチ部長.md",
@@ -25,7 +27,9 @@ const requiredFiles = [
 
 const requiredDirs = [
   "outputs/research",
+  "outputs/topic-queue",
   "outputs/drafts",
+  "outputs/publish-queue",
   "outputs/approvals",
   "outputs/published",
   "outputs/metrics",
