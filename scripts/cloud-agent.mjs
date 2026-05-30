@@ -22,6 +22,36 @@ const MODES = {
     outName: `${today}-cloud-research.md`,
     title: "noteネタ候補レポート",
   },
+  "research-note": {
+    promptFile: "prompts/research-note.md",
+    outDir: "outputs/research",
+    outName: `${today}-research-note.md`,
+    title: "noteリサーチレポート",
+  },
+  "research-x": {
+    promptFile: "prompts/research-x.md",
+    outDir: "outputs/research",
+    outName: `${today}-research-x.md`,
+    title: "Xリサーチレポート",
+  },
+  "research-youtube": {
+    promptFile: "prompts/research-youtube.md",
+    outDir: "outputs/research",
+    outName: `${today}-research-youtube.md`,
+    title: "YouTubeリサーチレポート",
+  },
+  "research-seo": {
+    promptFile: "prompts/research-seo.md",
+    outDir: "outputs/research",
+    outName: `${today}-research-seo.md`,
+    title: "Google/SEOリサーチレポート",
+  },
+  "research-market": {
+    promptFile: "prompts/research-market.md",
+    outDir: "outputs/research",
+    outName: `${today}-research-market.md`,
+    title: "無料商品市場リサーチレポート",
+  },
   curate: {
     promptFile: "prompts/topic-curation.md",
     outDir: "outputs/topic-queue",
@@ -100,10 +130,16 @@ async function buildContext() {
     "operations/note-quality-upgrade-methods.md",
     "operations/note-series-decision-rule.md",
     "operations/note-monetization-roadmap.md",
+    "operations/free-research-policy.md",
   ];
 
   const modeFiles = {
     research: ["agents/リサーチ部長.md"],
+    "research-note": ["agents/リサーチ部長.md"],
+    "research-x": ["agents/リサーチ部長.md"],
+    "research-youtube": ["agents/リサーチ部長.md"],
+    "research-seo": ["agents/リサーチ部長.md"],
+    "research-market": ["agents/リサーチ部長.md"],
     curate: ["operations/final-automation-architecture.md"],
     draft: ["agents/制作部編集長.md"],
     weekly: ["operations/weekly-editorial-meeting-template.md"],
@@ -128,7 +164,7 @@ note公開、X投稿、メール返信、購入者対応は人間の承認後に
     chunks.push(`--- RECENT PUBLISHED ---${await readDirSnippets("outputs/published")}`);
   }
 
-  if (mode !== "research" && mode !== "curate") {
+  if (!mode.startsWith("research") && mode !== "curate") {
     chunks.push(`--- RECENT RESEARCH ---${await readDirSnippets("outputs/research")}`);
     chunks.push(`--- RECENT TOPIC QUEUE ---${await readDirSnippets("outputs/topic-queue")}`);
     chunks.push(`--- RECENT APPROVALS ---${await readDirSnippets("outputs/approvals")}`);
@@ -147,7 +183,7 @@ async function main() {
   const context = await buildContext();
   const response = await client.responses.create({
     model,
-    ...(mode === "research" && enableWebSearch
+    ...(mode.startsWith("research") && enableWebSearch
       ? {
           tools: [
             {

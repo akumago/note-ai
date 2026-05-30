@@ -18,6 +18,7 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - `operations/weekly-editorial-meeting-template.md`: 週次note編集会議テンプレート
 - `operations/note-image-strategy.md`: note記事用の画像・図解戦略
 - `operations/note-quality-upgrade-methods.md`: note記事を高品質化する手法集
+- `operations/free-research-policy.md`: 無料公開情報だけでリサーチするための禁止事項
 - `operations/post-publish-workflow.md`: note公開後の分析・改善フロー
 - `operations/manual-note-posting-checklist.md`: note手動投稿チェックリスト
 - `operations/automation-setup.md`: Codex Automationの設定内容
@@ -45,4 +46,5 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - note依存を避けるため、公開原稿とエクスポートデータを定期的にバックアップする。
 - note記事はAIが完成させるのではなく、社長の体験談・失敗談・検証結果をAIが編集する形で作る。
 - バズネタ収集、ネタ精査、ドラフト作成、公開候補キュー化までは自動化する。
+- リサーチはnote、X、YouTube、Google/SEO、無料商品市場に分け、無料公開情報だけを使う。
 - noteへの投稿は、公開候補キューと投稿前チェックを通したものだけを扱う。
