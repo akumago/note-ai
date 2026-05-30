@@ -15,6 +15,7 @@ noteへの公開は、承認済みキューに入ったものだけを扱う。
 - 承認済みネタから記事ドラフト作成
 - 図解・画像案作成
 - 公開候補キュー作成
+- 投稿用最終パッケージ作成
 - コメント返信案作成
 - 週次でシリーズ化・撤退判断
 
@@ -50,6 +51,10 @@ outputs/drafts にドラフト作成
 Publish queue builder
   ↓
 outputs/publish-queue に公開候補が溜まる
+  ↓
+Post-ready package builder
+  ↓
+outputs/post-ready に貼り付け用パッケージが溜まる
   ↓
 社長が公開前に一次情報と価格を確認
   ↓

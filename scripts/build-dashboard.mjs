@@ -89,6 +89,8 @@ ${await buildSection("最新ドラフト", "outputs/drafts")}
 
 ${await buildSection("公開候補キュー", "outputs/publish-queue")}
 
+${await buildSection("投稿用最終パッケージ", "outputs/post-ready")}
+
 ${await buildSection("コメント返信案", "outputs/replies")}
 
 ${await buildSection("公開済み記事", "outputs/published")}

@@ -14,6 +14,7 @@ PCを起動していなくても、GitHub Actions上でnote運用の内部作業
 - 毎朝のネタ精査と候補キュー作成
 - 毎朝のnoteドラフト作成
 - 公開候補キュー作成
+- 投稿用最終パッケージ作成
 - 週次編集会議
 
 自動化しないこと:
@@ -66,6 +67,7 @@ ALLOW_OLD_APPROVAL=true
 | Automation preflight | `.github/workflows/automation-preflight.yml` | push時 / 手動 |
 | Daily note research | `.github/workflows/daily-research.yml` | 07:00 JST |
 | Daily note draft | `.github/workflows/daily-draft.yml` | 09:00 JST |
+| Build note post-ready package | `.github/workflows/post-ready.yml` | 手動 |
 | Weekly note editorial meeting | `.github/workflows/weekly-editorial.yml` | 日曜20:00 JST |
 
 GitHub ActionsのcronはUTCなので、JSTに合わせて以下にしている。
@@ -88,6 +90,7 @@ OPENAI_API_KEY=... npm run cloud:research:market
 OPENAI_API_KEY=... npm run cloud:curate
 OPENAI_API_KEY=... npm run cloud:draft
 npm run cloud:publish-queue
+npm run cloud:post-ready
 OPENAI_API_KEY=... npm run cloud:weekly
 ```
 
@@ -105,6 +108,7 @@ npm run cloud:research:market
 npm run cloud:curate
 npm run cloud:draft
 npm run cloud:publish-queue
+npm run cloud:post-ready
 ```
 
 `cloud:preflight` はAPIキーなしで実行できる。必要ファイル、出力ディレクトリ、スクリプト構文の確認に使う。
@@ -117,6 +121,7 @@ npm run cloud:publish-queue
 - ネタ候補キュー: `outputs/topic-queue/`
 - ドラフト: `outputs/drafts/`
 - 公開候補キュー: `outputs/publish-queue/`
+- 投稿用最終パッケージ: `outputs/post-ready/`
 - コメント返信案: `outputs/replies/`
 - 週次編集会議: `outputs/metrics/`
 - ダッシュボード: `outputs/dashboard.md`
@@ -134,6 +139,7 @@ GitHub Actions実行後、`outputs/dashboard.md` が更新される。
 - 社長への決済依頼
 - 最新ドラフト
 - 公開候補キュー
+- 投稿用最終パッケージ
 - コメント返信案
 - 公開済み記事
 - メトリクス
