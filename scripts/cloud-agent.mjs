@@ -111,7 +111,8 @@ if (mode === "reply" && !process.env.COMMENT_TEXT?.trim()) {
 }
 
 const config = MODES[mode];
-const model = process.env.OPENAI_MODEL || "gpt-5.2";
+const model = process.env.OPENAI_MODEL || "gpt-5";
+const fallbackModel = process.env.OPENAI_FALLBACK_MODEL || "gpt-5";
 const enableWebSearch = process.env.ENABLE_WEB_SEARCH !== "false";
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -222,34 +223,22 @@ ${process.env.COMMENT_NOTE || "なし"}`);
 
 async function main() {
   const context = await buildContext();
-  const response = await client.responses.create({
+  const input = [
+    {
+      role: "user",
+      content: [
+        {
+          type: "input_text",
+          text: `${context}\n\n--- OUTPUT REQUIREMENTS ---\n${config.title}をMarkdownで作成してください。ファイル保存はこのスクリプトが行うため、本文のみを返してください。`,
+        },
+      ],
+    },
+  ];
+
+  const response = await createResponseWithFallback({
     model,
-    ...(mode.startsWith("research") && enableWebSearch
-      ? {
-          tools: [
-            {
-              type: "web_search_preview",
-              search_context_size: "medium",
-              user_location: {
-                type: "approximate",
-                country: "JP",
-                timezone: "Asia/Tokyo",
-              },
-            },
-          ],
-        }
-      : {}),
-    input: [
-      {
-        role: "user",
-        content: [
-          {
-            type: "input_text",
-            text: `${context}\n\n--- OUTPUT REQUIREMENTS ---\n${config.title}をMarkdownで作成してください。ファイル保存はこのスクリプトが行うため、本文のみを返してください。`,
-          },
-        ],
-      },
-    ],
+    input,
+    useWebSearch: mode.startsWith("research") && enableWebSearch,
   });
 
   const outputText = response.output_text?.trim();
@@ -261,6 +250,50 @@ async function main() {
   const outputPath = path.join(ROOT, config.outDir, config.outName);
   await fs.writeFile(outputPath, `${outputText}\n`, "utf8");
   console.log(`Wrote ${path.relative(ROOT, outputPath)}`);
+}
+
+async function createResponseWithFallback({ model, input, useWebSearch }) {
+  try {
+    return await createResponse({ model, input, useWebSearch });
+  } catch (error) {
+    const message = String(error?.message || error);
+    console.error(`OpenAI request failed with model=${model}, web_search=${useWebSearch}: ${message}`);
+
+    if (useWebSearch) {
+      console.error("Retrying without web_search.");
+      return createResponse({ model, input, useWebSearch: false });
+    }
+
+    if (model !== fallbackModel && /model|not found|does not exist|unsupported/i.test(message)) {
+      console.error(`Retrying with fallback model=${fallbackModel}.`);
+      return createResponse({ model: fallbackModel, input, useWebSearch: false });
+    }
+
+    throw error;
+  }
+}
+
+async function createResponse({ model, input, useWebSearch }) {
+  return client.responses.create({
+    model,
+    ...(useWebSearch
+      ? {
+          tools: [
+            {
+              type: "web_search",
+              search_context_size: "medium",
+              user_location: {
+                type: "approximate",
+                country: "JP",
+                timezone: "Asia/Tokyo",
+              },
+            },
+          ],
+          tool_choice: "auto",
+        }
+      : {}),
+    input,
+  });
 }
 
 main().catch((error) => {
