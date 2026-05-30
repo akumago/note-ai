@@ -42,15 +42,15 @@ ALLOW_OLD_APPROVAL=false
 | Workflow | ファイル | 実行時刻 |
 | --- | --- | --- |
 | Automation preflight | `.github/workflows/automation-preflight.yml` | push時 / 手動 |
-| Daily Codex research reminder | `.github/workflows/daily-research.yml` | 07:00 JST |
-| Daily Codex draft reminder | `.github/workflows/daily-draft.yml` | 09:00 JST |
+| Daily Codex research reminder | `.github/workflows/daily-research.yml` | 19:00 JST |
+| Daily Codex draft reminder | `.github/workflows/daily-draft.yml` | 22:00 JST |
 | Build note post-ready package | `.github/workflows/post-ready.yml` | 手動 |
 | Weekly Codex editorial reminder | `.github/workflows/weekly-editorial.yml` | 日曜20:00 JST |
 
 GitHub ActionsのcronはUTCなので、JSTに合わせて以下にしている。
 
-- 07:00 JST = 22:00 UTC（前日）
-- 09:00 JST = 00:00 UTC
+- 19:00 JST = 10:00 UTC
+- 22:00 JST = 13:00 UTC
 - 日曜20:00 JST = 日曜11:00 UTC
 
 ## ローカルでの手動実行
