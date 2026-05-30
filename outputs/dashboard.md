@@ -35,6 +35,11 @@
 - [2026-05-29-research-02-paid-reader.md](outputs/research/2026-05-29-research-02-paid-reader.md)
 
 
+## ネタ候補キュー
+
+- なし
+
+
 ## 最新承認ログ
 
 - [2026-05-29-approval.md](outputs/approvals/2026-05-29-approval.md)
@@ -45,6 +50,26 @@
 
 - [2026-05-29-drafts.md](outputs/drafts/2026-05-29-drafts.md)
 - [2026-05-29-draft-02-paid-reader.md](outputs/drafts/2026-05-29-draft-02-paid-reader.md)
+
+
+## 公開候補キュー
+
+- なし
+
+
+## 投稿用最終パッケージ
+
+- なし
+
+
+## コメント返信案
+
+- なし
+
+
+## Codex実行リマインド
+
+- [2026-05-30-daily-codex-reminder.md](outputs/reminders/2026-05-30-daily-codex-reminder.md)
 
 
 ## 公開済み記事
@@ -65,5 +90,7 @@
 
 - note公開は手動
 - X投稿は手動
+- noteコメント返信は手動
 - メール送信、購入者返信、削除、購入は手動
 - 自動生成物は必ず社長が確認してから使う
+- AI生成はCodex Business内で実行する
