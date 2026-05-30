@@ -11,6 +11,8 @@ const requiredFiles = [
   "scripts/build-publish-queue.mjs",
   "scripts/build-post-ready.mjs",
   "scripts/build-codex-reminder.mjs",
+  "scripts/create-ceo-approval-issue.mjs",
+  "scripts/import-ceo-approval-comment.mjs",
   "prompts/codex-business-daily-run.md",
   "prompts/codex-business-research-catchup-run.md",
   "prompts/codex-business-ceo-approval-brief.md",
@@ -38,9 +40,11 @@ const requiredFiles = [
   "operations/codex-business-runbook.md",
   "operations/research-catchup-automation.md",
   "operations/ceo-approval-brief-workflow.md",
+  "operations/github-issue-approval-workflow.md",
   ".github/workflows/daily-research.yml",
   ".github/workflows/daily-draft.yml",
   ".github/workflows/comment-reply.yml",
+  ".github/workflows/ceo-approval.yml",
   ".github/workflows/weekly-editorial.yml",
 ];
 

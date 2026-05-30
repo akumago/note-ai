@@ -1,0 +1,58 @@
+name: CEO approval issue
+
+on:
+  push:
+    paths:
+      - "outputs/ceo-briefs/**"
+  workflow_dispatch:
+    inputs:
+      brief_file:
+        description: "Optional path to a CEO brief file"
+        required: false
+        type: string
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  create_issue:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Create CEO approval issue
+        run: node scripts/create-ceo-approval-issue.mjs "${{ inputs.brief_file }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  import_comment:
+    if: github.event_name == 'issue_comment' && startsWith(github.event.issue.title, 'CEO approval:')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Import CEO approval comment
+        run: node scripts/import-ceo-approval-comment.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build dashboard
+        run: node scripts/build-dashboard.mjs
+      - name: Commit approval
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/approvals outputs/dashboard.md
+          if git diff --cached --quiet; then
+            echo "No approval changes to commit"
+          else
+            git commit -m "chore: import CEO approval"
+            git push
+          fi

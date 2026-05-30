@@ -19,6 +19,8 @@
     "cloud:publish-queue": "node scripts/build-publish-queue.mjs",
     "cloud:post-ready": "node scripts/build-post-ready.mjs",
     "cloud:codex-reminder": "node scripts/build-codex-reminder.mjs",
+    "cloud:ceo-approval-issue": "node scripts/create-ceo-approval-issue.mjs",
+    "cloud:import-ceo-approval": "node scripts/import-ceo-approval-comment.mjs",
     "cloud:dashboard": "node scripts/build-dashboard.mjs"
   },
   "dependencies": {

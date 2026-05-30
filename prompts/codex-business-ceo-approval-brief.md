@@ -37,6 +37,13 @@ Create a short approval brief in:
 
 Also present the same brief to the CEO in the conversation if possible.
 
+## GitHub Issue delivery
+
+After creating the brief file, make it available for smartphone approval.
+If git push is available in this workspace, commit and push only the new `outputs/ceo-briefs/YYYY-MM-DD-approval-brief.md` file. The GitHub workflow `CEO approval issue` will create the approval issue automatically from that pushed file.
+
+If git push is not available, report the brief path and tell the CEO to push the brief file or run the `CEO approval issue` workflow after the brief file has been pushed.
+
 ## Brief format
 
 Use this exact structure:
