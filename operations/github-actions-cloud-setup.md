@@ -117,6 +117,7 @@ npm run cloud:publish-queue
 - ネタ候補キュー: `outputs/topic-queue/`
 - ドラフト: `outputs/drafts/`
 - 公開候補キュー: `outputs/publish-queue/`
+- コメント返信案: `outputs/replies/`
 - 週次編集会議: `outputs/metrics/`
 - ダッシュボード: `outputs/dashboard.md`
 
@@ -133,6 +134,7 @@ GitHub Actions実行後、`outputs/dashboard.md` が更新される。
 - 社長への決済依頼
 - 最新ドラフト
 - 公開候補キュー
+- コメント返信案
 - 公開済み記事
 - メトリクス
 - 手動でやるべきこと

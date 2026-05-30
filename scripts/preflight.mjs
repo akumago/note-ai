@@ -9,6 +9,7 @@ const requiredFiles = [
   "scripts/build-dashboard.mjs",
   "scripts/check-approval.mjs",
   "scripts/build-publish-queue.mjs",
+  "prompts/comment-reply.md",
   "prompts/daily-research.md",
   "prompts/research-note.md",
   "prompts/research-x.md",
@@ -26,8 +27,10 @@ const requiredFiles = [
   "operations/note-quality-upgrade-methods.md",
   "operations/note-series-decision-rule.md",
   "operations/free-research-policy.md",
+  "operations/comment-reply-workflow.md",
   ".github/workflows/daily-research.yml",
   ".github/workflows/daily-draft.yml",
+  ".github/workflows/comment-reply.yml",
   ".github/workflows/weekly-editorial.yml",
 ];
 
@@ -36,6 +39,7 @@ const requiredDirs = [
   "outputs/topic-queue",
   "outputs/drafts",
   "outputs/publish-queue",
+  "outputs/replies",
   "outputs/approvals",
   "outputs/published",
   "outputs/metrics",

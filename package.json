@@ -14,6 +14,7 @@
     "cloud:research:market": "node scripts/cloud-agent.mjs research-market",
     "cloud:curate": "node scripts/cloud-agent.mjs curate",
     "cloud:draft": "node scripts/cloud-agent.mjs draft",
+    "cloud:reply": "node scripts/cloud-agent.mjs reply",
     "cloud:weekly": "node scripts/cloud-agent.mjs weekly",
     "cloud:publish-queue": "node scripts/build-publish-queue.mjs",
     "cloud:dashboard": "node scripts/build-dashboard.mjs"

@@ -89,6 +89,8 @@ ${await buildSection("最新ドラフト", "outputs/drafts")}
 
 ${await buildSection("公開候補キュー", "outputs/publish-queue")}
 
+${await buildSection("コメント返信案", "outputs/replies")}
+
 ${await buildSection("公開済み記事", "outputs/published")}
 
 ${await buildSection("メトリクス", "outputs/metrics")}
@@ -97,6 +99,7 @@ ${await buildSection("メトリクス", "outputs/metrics")}
 
 - note公開は手動
 - X投稿は手動
+- noteコメント返信は手動
 - メール送信、購入者返信、削除、購入は手動
 - 自動生成物は必ず社長が確認してから使う
 `;

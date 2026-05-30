@@ -5,6 +5,7 @@ import OpenAI from "openai";
 const ROOT = process.cwd();
 const mode = process.argv[2];
 const today = formatDateInTokyo(new Date());
+const nowSlug = formatDateTimeInTokyo(new Date());
 
 function formatDateInTokyo(date) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -13,6 +14,22 @@ function formatDateInTokyo(date) {
     month: "2-digit",
     day: "2-digit",
   }).format(date);
+}
+
+function formatDateTimeInTokyo(date) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}-${values.hour}${values.minute}${values.second}`;
 }
 
 const MODES = {
@@ -64,6 +81,12 @@ const MODES = {
     outName: `${today}-cloud-draft.md`,
     title: "note制作ドラフト",
   },
+  reply: {
+    promptFile: "prompts/comment-reply.md",
+    outDir: "outputs/replies",
+    outName: `${nowSlug}-comment-reply.md`,
+    title: "コメント返信案",
+  },
   weekly: {
     promptFile: "prompts/weekly-editorial-meeting.md",
     outDir: "outputs/metrics",
@@ -79,6 +102,11 @@ if (!MODES[mode]) {
 
 if (!process.env.OPENAI_API_KEY) {
   console.error("OPENAI_API_KEY is required.");
+  process.exit(1);
+}
+
+if (mode === "reply" && !process.env.COMMENT_TEXT?.trim()) {
+  console.error("COMMENT_TEXT is required for reply mode.");
   process.exit(1);
 }
 
@@ -142,6 +170,7 @@ async function buildContext() {
     "research-market": ["agents/リサーチ部長.md"],
     curate: ["operations/final-automation-architecture.md"],
     draft: ["agents/制作部編集長.md"],
+    reply: ["agents/カスタマーサポート担当.md", "operations/comment-reply-workflow.md"],
     weekly: ["operations/weekly-editorial-meeting-template.md"],
   };
 
@@ -168,6 +197,18 @@ note公開、X投稿、メール返信、購入者対応は人間の承認後に
     chunks.push(`--- RECENT RESEARCH ---${await readDirSnippets("outputs/research")}`);
     chunks.push(`--- RECENT TOPIC QUEUE ---${await readDirSnippets("outputs/topic-queue")}`);
     chunks.push(`--- RECENT APPROVALS ---${await readDirSnippets("outputs/approvals")}`);
+  }
+
+  if (mode === "reply") {
+    chunks.push(`--- COMMENT INPUT ---
+対象記事: ${process.env.COMMENT_ARTICLE || "未指定"}
+投稿者: ${process.env.COMMENT_AUTHOR || "未指定"}
+コメント本文:
+${process.env.COMMENT_TEXT || "未入力"}
+
+補足:
+${process.env.COMMENT_NOTE || "なし"}`);
+    chunks.push(`--- RECENT REPLIES ---${await readDirSnippets("outputs/replies")}`);
   }
 
   if (mode === "weekly") {

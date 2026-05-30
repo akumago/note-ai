@@ -19,6 +19,7 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - `operations/note-image-strategy.md`: note記事用の画像・図解戦略
 - `operations/note-quality-upgrade-methods.md`: note記事を高品質化する手法集
 - `operations/free-research-policy.md`: 無料公開情報だけでリサーチするための禁止事項
+- `operations/comment-reply-workflow.md`: noteコメント返信案を作る運用フロー
 - `operations/post-publish-workflow.md`: note公開後の分析・改善フロー
 - `operations/manual-note-posting-checklist.md`: note手動投稿チェックリスト
 - `operations/automation-setup.md`: Codex Automationの設定内容
@@ -48,3 +49,4 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - バズネタ収集、ネタ精査、ドラフト作成、公開候補キュー化までは自動化する。
 - リサーチはnote、X、YouTube、Google/SEO、無料商品市場に分け、無料公開情報だけを使う。
 - noteへの投稿は、公開候補キューと投稿前チェックを通したものだけを扱う。
+- コメント返信は自動投稿せず、返信案だけを作って社長が手動返信する。
