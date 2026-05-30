@@ -1,4 +1,4 @@
-﻿name: Comment reply assistant
+name: Comment reply reminder
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ permissions:
   contents: write
 
 jobs:
-  reply:
+  reminder:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,25 +32,48 @@ jobs:
         with:
           node-version: "24"
       - run: npm install
-      - name: Build reply draft
-        run: npm run cloud:reply
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
-          COMMENT_ARTICLE: ${{ inputs.article }}
-          COMMENT_AUTHOR: ${{ inputs.author }}
-          COMMENT_TEXT: ${{ inputs.comment_text }}
-          COMMENT_NOTE: ${{ inputs.note }}
+      - name: Create comment reply reminder
+        run: |
+          mkdir -p outputs/reminders
+          cat > outputs/reminders/$(date -u +%F)-comment-reply-reminder.md <<'EOF'
+          # コメント返信案作成リマインド
+
+          ## Codexで実行すること
+
+          `prompts/comment-reply.md` に沿って、以下のコメントへの返信案を作成する。
+
+          ## 対象記事
+
+          ${{ inputs.article }}
+
+          ## 投稿者
+
+          ${{ inputs.author }}
+
+          ## コメント本文
+
+          ${{ inputs.comment_text }}
+
+          ## 補足
+
+          ${{ inputs.note }}
+
+          ## 注意
+
+          - GitHub ActionsではAI生成しない
+          - Codex Business内で返信案を作る
+          - note上の返信は社長が手動で行う
+          EOF
       - name: Build dashboard
         run: npm run cloud:dashboard
-      - name: Commit reply draft
+      - name: Commit reminder
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/replies/*.md outputs/dashboard.md
+          git add outputs/reminders outputs/dashboard.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: add comment reply draft"
+            git commit -m "chore: add comment reply reminder"
             git push
           fi

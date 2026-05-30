@@ -3,9 +3,10 @@
 ## 最終目標
 
 バズっているネタを継続的に発見し、売れそうな読者悩みで精査し、記事ドラフトと公開候補を自動で積み上げる。  
-noteへの公開は、承認済みキューに入ったものだけを扱う。
+noteへの公開は、承認済みキューに入ったものだけを扱う。  
+AI生成はGitHub Actionsではなく、Codex Business内で実行する。
 
-## 自動化する範囲
+## Codex Businessで自動化する範囲
 
 - バズネタ収集
 - noteランキング、人気タグ、X、YouTube、Google/SEO、無料商品市場の分析
@@ -21,6 +22,7 @@ noteへの公開は、承認済みキューに入ったものだけを扱う。
 
 ## 自動化しない範囲
 
+- GitHub ActionsからのOpenAI API実行
 - noteへの無承認投稿
 - noteコメントへの無承認返信
 - Xへの無承認投稿
@@ -31,6 +33,8 @@ noteへの公開は、承認済みキューに入ったものだけを扱う。
 ## 運用フロー
 
 ```text
+Codex Automation / Codex手動実行
+  ↓
 Daily note research
   ├─ noteリサーチ
   ├─ Xリサーチ
@@ -87,3 +91,4 @@ Weekly editorial meeting
 - note規約チェックを通過しない記事は公開候補から外す。
 - リサーチは無料公開情報だけを使う。
 - 有料記事、教材、講座、分析ツールは購入しない。
+- GitHub ActionsではAI生成せず、リマインドと整理に限定する。

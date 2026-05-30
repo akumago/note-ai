@@ -18,6 +18,7 @@
     "cloud:weekly": "node scripts/cloud-agent.mjs weekly",
     "cloud:publish-queue": "node scripts/build-publish-queue.mjs",
     "cloud:post-ready": "node scripts/build-post-ready.mjs",
+    "cloud:codex-reminder": "node scripts/build-codex-reminder.mjs",
     "cloud:dashboard": "node scripts/build-dashboard.mjs"
   },
   "dependencies": {

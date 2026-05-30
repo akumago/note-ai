@@ -93,6 +93,8 @@ ${await buildSection("投稿用最終パッケージ", "outputs/post-ready")}
 
 ${await buildSection("コメント返信案", "outputs/replies")}
 
+${await buildSection("Codex実行リマインド", "outputs/reminders")}
+
 ${await buildSection("公開済み記事", "outputs/published")}
 
 ${await buildSection("メトリクス", "outputs/metrics")}
@@ -104,6 +106,7 @@ ${await buildSection("メトリクス", "outputs/metrics")}
 - noteコメント返信は手動
 - メール送信、購入者返信、削除、購入は手動
 - 自動生成物は必ず社長が確認してから使う
+- AI生成はCodex Business内で実行する
 `;
 
   await fs.writeFile(path.join(ROOT, "outputs", "dashboard.md"), dashboard, "utf8");

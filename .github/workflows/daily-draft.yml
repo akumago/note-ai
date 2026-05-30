@@ -1,4 +1,4 @@
-﻿name: Daily note draft
+name: Daily Codex draft reminder
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  draft:
+  reminder:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,30 +18,27 @@ jobs:
           node-version: "24"
       - run: npm install
       - name: Check approved topic
-        id: approval
         run: npm run cloud:check-approval
         env:
           ALLOW_OLD_APPROVAL: ${{ vars.ALLOW_OLD_APPROVAL || 'false' }}
-      - name: Run daily draft
-        if: steps.approval.outputs.should_run == 'true'
-        run: npm run cloud:draft
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
+      - name: Create Codex draft reminder
+        run: node scripts/build-codex-reminder.mjs draft
       - name: Build publish queue
         run: npm run cloud:publish-queue
       - name: Build post-ready package
         run: npm run cloud:post-ready
+        continue-on-error: true
       - name: Build dashboard
         run: npm run cloud:dashboard
-      - name: Commit outputs
+      - name: Commit reminder
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/drafts/*.md outputs/publish-queue/*.md outputs/post-ready/*.md outputs/dashboard.md
+          mkdir -p outputs/publish-queue outputs/post-ready
+          git add outputs/reminders outputs/publish-queue outputs/post-ready outputs/dashboard.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: add daily note draft"
+            git commit -m "chore: add Codex draft reminder"
             git push
           fi

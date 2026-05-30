@@ -1,4 +1,4 @@
-﻿name: Daily note research
+name: Daily Codex research reminder
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  research:
+  reminder:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,51 +17,18 @@ jobs:
         with:
           node-version: "24"
       - run: npm install
-      - name: Run note research
-        run: npm run cloud:research:note
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
-          ENABLE_WEB_SEARCH: ${{ vars.ENABLE_WEB_SEARCH || 'true' }}
-      - name: Run X research
-        run: npm run cloud:research:x
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
-          ENABLE_WEB_SEARCH: ${{ vars.ENABLE_WEB_SEARCH || 'true' }}
-      - name: Run YouTube research
-        run: npm run cloud:research:youtube
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
-          ENABLE_WEB_SEARCH: ${{ vars.ENABLE_WEB_SEARCH || 'true' }}
-      - name: Run SEO research
-        run: npm run cloud:research:seo
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
-          ENABLE_WEB_SEARCH: ${{ vars.ENABLE_WEB_SEARCH || 'true' }}
-      - name: Run free market research
-        run: npm run cloud:research:market
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
-          ENABLE_WEB_SEARCH: ${{ vars.ENABLE_WEB_SEARCH || 'true' }}
-      - name: Curate topic queue
-        run: npm run cloud:curate
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
+      - name: Create Codex daily reminder
+        run: node scripts/build-codex-reminder.mjs daily
       - name: Build dashboard
         run: npm run cloud:dashboard
-      - name: Commit outputs
+      - name: Commit reminder
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/research/*.md outputs/topic-queue/*.md outputs/dashboard.md
+          git add outputs/reminders outputs/dashboard.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: add daily note research"
+            git commit -m "chore: add Codex daily reminder"
             git push
           fi

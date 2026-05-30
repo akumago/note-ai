@@ -31,6 +31,7 @@ jobs:
           node --check scripts/check-approval.mjs
           node --check scripts/build-publish-queue.mjs
           node --check scripts/build-post-ready.mjs
+          node --check scripts/build-codex-reminder.mjs
           node --check scripts/preflight.mjs
       - name: Run preflight
         run: npm run cloud:preflight

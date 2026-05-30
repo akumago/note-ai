@@ -5,11 +5,14 @@
 ## 基本方針
 
 外部投稿・外部送信・購入・削除は自動化しない。  
+OpenAI API課金を避け、Business / Codex内でAI作業を行う。  
 Codex Automationで自動化するのは、以下の内部作業に限定する。
 
 - リサーチ
 - ドラフト作成
 - 週次編集会議
+- 投稿用最終パッケージ作成
+- コメント返信案作成
 
 noteへの公開、Xへの投稿、購入者対応の送信は社長が手動で承認する。
 
@@ -17,27 +20,26 @@ noteへの公開、Xへの投稿、購入者対応の送信は社長が手動で
 
 | Automation | 役割 | 実行タイミング | 出力先 |
 | --- | --- | --- | --- |
-| 毎朝 note リサーチ部 | noteランキング・人気タグ・売れ筋・SNS急上昇からネタ候補を出す | 毎朝7時 | `outputs/research/` |
-| 毎朝 note 制作部 | 承認済みネタからnoteドラフトを作る | 毎朝9時 | `outputs/drafts/` |
+| 毎朝 note リサーチ部 | Codex Business内で5部署リサーチとネタ精査を回す | 毎朝7時 | `outputs/research/`, `outputs/topic-queue/` |
+| 毎朝 note 制作部 | 承認済みネタからドラフトと投稿パッケージを作る | 毎朝9時 | `outputs/drafts/`, `outputs/post-ready/` |
 | 週次 note 編集会議 | 公開記事の反応を見てシリーズ化・有料化・撤退を提案する | 毎週日曜20時 | `outputs/metrics/` |
 
 ## 毎朝 note リサーチ部
 
 参照:
 
-- `prompts/daily-research.md`
+- `prompts/codex-business-daily-run.md`
 - `agents/リサーチ部長.md`
 - `inputs/`
-- `operations/note-topic-selection-method.md`
-- `operations/note-compliance-checklist.md`
+- `operations/codex-business-runbook.md`
+- `operations/free-research-policy.md`
 
 やること:
 
-- noteランキングや人気タグを見る。
-- 有料でも買ってくれる読者の悩みを探す。
-- バズに乗れるテーマを出す。
-- 社長の一次情報・検証ログ・仮説・架空ケースで差別化できるか確認する。
-- 社長への採用 / 却下の決済依頼を出す。
+- note / X / YouTube / Google・SEO / 無料商品市場の5部署リサーチを回す。
+- ネタ候補を媒体横断で採点する。
+- 社長への採用 / 却下候補を出す。
+- 承認済みネタがあればドラフトと投稿パッケージまで作る。
 
 やらないこと:
 
@@ -50,7 +52,7 @@ noteへの公開、Xへの投稿、購入者対応の送信は社長が手動で
 
 参照:
 
-- `prompts/daily-draft.md`
+- `prompts/codex-business-draft-run.md`
 - `agents/制作部編集長.md`
 - `outputs/approvals/`
 - `operations/note-article-writing-method.md`
@@ -64,7 +66,7 @@ noteへの公開、Xへの投稿、購入者対応の送信は社長が手動で
 - X投稿案を作る。
 - シリーズ化メモを作る。
 - 品質スコアを付ける。
-- 投稿前チェックを出す。
+- 公開候補キューと投稿用最終パッケージを作る。
 
 承認済みネタがない場合:
 
@@ -74,7 +76,7 @@ noteへの公開、Xへの投稿、購入者対応の送信は社長が手動で
 
 参照:
 
-- `prompts/weekly-editorial-meeting.md`
+- `prompts/codex-business-weekly-run.md`
 - `operations/weekly-editorial-meeting-template.md`
 - `operations/note-series-decision-rule.md`
 - `outputs/published/`
@@ -133,10 +135,7 @@ noteへの公開、Xへの投稿、購入者対応の送信は社長が手動で
 
 ただし、外部投稿・自動送信は引き続き社長承認を必須にする。
 
-## クラウド実行
+## GitHub Actions
 
-PCを起動していなくても回す場合は、GitHub Actions版を使う。
-
-詳細:
-
-`operations/github-actions-cloud-setup.md`
+GitHub ActionsではAI生成をしない。  
+API課金を避けるため、リマインド、preflight、ダッシュボード整理だけに使う。

@@ -21,6 +21,7 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - `operations/free-research-policy.md`: 無料公開情報だけでリサーチするための禁止事項
 - `operations/comment-reply-workflow.md`: noteコメント返信案を作る運用フロー
 - `operations/post-ready-package-workflow.md`: note投稿用最終パッケージを作る運用フロー
+- `operations/codex-business-runbook.md`: API課金なしでCodex Business内運用する手順
 - `operations/post-publish-workflow.md`: note公開後の分析・改善フロー
 - `operations/manual-note-posting-checklist.md`: note手動投稿チェックリスト
 - `operations/automation-setup.md`: Codex Automationの設定内容
@@ -52,3 +53,4 @@ Codex / Claude Code上で、MDファイルに定義したAIエージェント群
 - noteへの投稿は、公開候補キューと投稿前チェックを通したものだけを扱う。
 - 承認済み記事は `outputs/post-ready/` に投稿用最終パッケージとして整形する。
 - コメント返信は自動投稿せず、返信案だけを作って社長が手動返信する。
+- AI生成はGitHub Actionsではなく、Codex Business内で実行する。

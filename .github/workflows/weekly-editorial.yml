@@ -1,4 +1,4 @@
-﻿name: Weekly note editorial meeting
+name: Weekly Codex editorial reminder
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  weekly:
+  reminder:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,21 +17,18 @@ jobs:
         with:
           node-version: "24"
       - run: npm install
-      - name: Run weekly editorial meeting
-        run: npm run cloud:weekly
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.2' }}
+      - name: Create Codex weekly reminder
+        run: node scripts/build-codex-reminder.mjs weekly
       - name: Build dashboard
         run: npm run cloud:dashboard
-      - name: Commit outputs
+      - name: Commit reminder
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/metrics/*.md outputs/dashboard.md
+          git add outputs/reminders outputs/dashboard.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: add weekly note editorial meeting"
+            git commit -m "chore: add Codex weekly reminder"
             git push
           fi
