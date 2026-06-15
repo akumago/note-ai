@@ -54,20 +54,20 @@
 
 ## 公開候補キュー
 
+- [2026-06-16-publish-queue.md](outputs/publish-queue/2026-06-16-publish-queue.md)
 - [2026-06-15-publish-queue.md](outputs/publish-queue/2026-06-15-publish-queue.md)
 - [2026-06-13-publish-queue.md](outputs/publish-queue/2026-06-13-publish-queue.md)
 - [2026-06-12-publish-queue.md](outputs/publish-queue/2026-06-12-publish-queue.md)
 - [2026-06-11-publish-queue.md](outputs/publish-queue/2026-06-11-publish-queue.md)
-- [2026-06-10-publish-queue.md](outputs/publish-queue/2026-06-10-publish-queue.md)
 
 
 ## 投稿用最終パッケージ
 
+- [2026-06-16-有料でも買う読者の見分け方。note収益化は「誰に売るか」で決まる.md](outputs/post-ready/2026-06-16-%E6%9C%89%E6%96%99%E3%81%A7%E3%82%82%E8%B2%B7%E3%81%86%E8%AA%AD%E8%80%85%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9%E3%80%82note%E5%8F%8E%E7%9B%8A%E5%8C%96%E3%81%AF%E3%80%8C%E8%AA%B0%E3%81%AB%E5%A3%B2%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B.md)
 - [2026-06-15-有料でも買う読者の見分け方。note収益化は「誰に売るか」で決まる.md](outputs/post-ready/2026-06-15-%E6%9C%89%E6%96%99%E3%81%A7%E3%82%82%E8%B2%B7%E3%81%86%E8%AA%AD%E8%80%85%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9%E3%80%82note%E5%8F%8E%E7%9B%8A%E5%8C%96%E3%81%AF%E3%80%8C%E8%AA%B0%E3%81%AB%E5%A3%B2%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B.md)
 - [2026-06-13-有料でも買う読者の見分け方。note収益化は「誰に売るか」で決まる.md](outputs/post-ready/2026-06-13-%E6%9C%89%E6%96%99%E3%81%A7%E3%82%82%E8%B2%B7%E3%81%86%E8%AA%AD%E8%80%85%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9%E3%80%82note%E5%8F%8E%E7%9B%8A%E5%8C%96%E3%81%AF%E3%80%8C%E8%AA%B0%E3%81%AB%E5%A3%B2%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B.md)
 - [2026-06-12-有料でも買う読者の見分け方。note収益化は「誰に売るか」で決まる.md](outputs/post-ready/2026-06-12-%E6%9C%89%E6%96%99%E3%81%A7%E3%82%82%E8%B2%B7%E3%81%86%E8%AA%AD%E8%80%85%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9%E3%80%82note%E5%8F%8E%E7%9B%8A%E5%8C%96%E3%81%AF%E3%80%8C%E8%AA%B0%E3%81%AB%E5%A3%B2%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B.md)
 - [2026-06-11-有料でも買う読者の見分け方。note収益化は「誰に売るか」で決まる.md](outputs/post-ready/2026-06-11-%E6%9C%89%E6%96%99%E3%81%A7%E3%82%82%E8%B2%B7%E3%81%86%E8%AA%AD%E8%80%85%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9%E3%80%82note%E5%8F%8E%E7%9B%8A%E5%8C%96%E3%81%AF%E3%80%8C%E8%AA%B0%E3%81%AB%E5%A3%B2%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B.md)
-- [2026-06-10-有料でも買う読者の見分け方。note収益化は「誰に売るか」で決まる.md](outputs/post-ready/2026-06-10-%E6%9C%89%E6%96%99%E3%81%A7%E3%82%82%E8%B2%B7%E3%81%86%E8%AA%AD%E8%80%85%E3%81%AE%E8%A6%8B%E5%88%86%E3%81%91%E6%96%B9%E3%80%82note%E5%8F%8E%E7%9B%8A%E5%8C%96%E3%81%AF%E3%80%8C%E8%AA%B0%E3%81%AB%E5%A3%B2%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B.md)
 
 
 ## コメント返信案
@@ -77,11 +77,11 @@
 
 ## Codex実行リマインド
 
+- [2026-06-16-draft-codex-reminder.md](outputs/reminders/2026-06-16-draft-codex-reminder.md)
 - [2026-06-16-daily-codex-reminder.md](outputs/reminders/2026-06-16-daily-codex-reminder.md)
 - [2026-06-15-draft-codex-reminder.md](outputs/reminders/2026-06-15-draft-codex-reminder.md)
 - [2026-06-14-weekly-codex-reminder.md](outputs/reminders/2026-06-14-weekly-codex-reminder.md)
 - [2026-06-14-daily-codex-reminder.md](outputs/reminders/2026-06-14-daily-codex-reminder.md)
-- [2026-06-13-draft-codex-reminder.md](outputs/reminders/2026-06-13-draft-codex-reminder.md)
 
 
 ## 公開済み記事
