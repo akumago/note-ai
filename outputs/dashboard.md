@@ -1,6 +1,6 @@
 # note運用ダッシュボード
 
-更新日: 2026-07-04
+更新日: 2026-07-05
 
 ## 今日見る順番
 
@@ -77,11 +77,11 @@
 
 ## Codex実行リマインド
 
+- [2026-07-05-daily-codex-reminder.md](outputs/reminders/2026-07-05-daily-codex-reminder.md)
 - [2026-07-04-draft-codex-reminder.md](outputs/reminders/2026-07-04-draft-codex-reminder.md)
 - [2026-07-04-daily-codex-reminder.md](outputs/reminders/2026-07-04-daily-codex-reminder.md)
 - [2026-07-03-draft-codex-reminder.md](outputs/reminders/2026-07-03-draft-codex-reminder.md)
 - [2026-07-03-daily-codex-reminder.md](outputs/reminders/2026-07-03-daily-codex-reminder.md)
-- [2026-07-02-draft-codex-reminder.md](outputs/reminders/2026-07-02-draft-codex-reminder.md)
 
 
 ## 公開済み記事
