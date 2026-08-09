@@ -77,11 +77,11 @@
 
 ## Codex実行リマインド
 
+- [2026-08-09-weekly-codex-reminder.md](outputs/reminders/2026-08-09-weekly-codex-reminder.md)
 - [2026-08-09-daily-codex-reminder.md](outputs/reminders/2026-08-09-daily-codex-reminder.md)
 - [2026-08-08-draft-codex-reminder.md](outputs/reminders/2026-08-08-draft-codex-reminder.md)
 - [2026-08-08-daily-codex-reminder.md](outputs/reminders/2026-08-08-daily-codex-reminder.md)
 - [2026-08-07-draft-codex-reminder.md](outputs/reminders/2026-08-07-draft-codex-reminder.md)
-- [2026-08-07-daily-codex-reminder.md](outputs/reminders/2026-08-07-daily-codex-reminder.md)
 
 
 ## 公開済み記事
